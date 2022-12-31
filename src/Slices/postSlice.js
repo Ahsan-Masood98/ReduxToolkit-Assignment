@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
 };
 
-const getPosts = createAsyncThunk(
+export const getPosts = createAsyncThunk(
   //action type string
   "posts/getPosts",
   // callback function
@@ -13,6 +13,7 @@ const getPosts = createAsyncThunk(
     const res = await fetch("https://jsonplaceholder.typicode.com/posts").then(
       (data) => data.json()
     );
+    console.log("from Post Slice", res);
     return res;
   }
 );
